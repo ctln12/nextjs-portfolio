@@ -1,7 +1,10 @@
+import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import Image from 'next/image'
 
 export default function Home() {
+  const { theme, setTheme } = useTheme()
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -20,10 +23,18 @@ export default function Home() {
 
         <p className="mt-3 text-2xl">
           Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
+          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg dark:text-gray-800">
             pages/index.tsx
           </code>
         </p>
+
+        <button
+          aria-label="Toggle Dark Mode"
+          type="button"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mt-3 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          {theme === "dark" ? "light" : "dark"}
+        </button>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a
