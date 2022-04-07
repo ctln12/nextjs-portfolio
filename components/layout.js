@@ -1,15 +1,16 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 import Head from 'next/head'
+import Navbar from './navbar';
 
 export default function Layout({ children, ...customMeta }) {
   const router = useRouter();
 
   const meta = {
-    title: "Cataline Baert - Developer and Teacher",
+    title: 'Cataline Baert - Developer and Teacher',
     description: `I've been coding and teaching web development for 2 years. Get in touch with me to know more.`,
-    image: "/images/profile.jpg",
-    type: "website",
+    image: '/images/profile.jpg',
+    type: 'website',
     ...customMeta,
   };
 
@@ -43,6 +44,7 @@ export default function Layout({ children, ...customMeta }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Navbar />
         <div>{children}</div>
       </main>
     </div>
